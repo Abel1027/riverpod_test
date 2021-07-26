@@ -10,7 +10,7 @@ class RiverpodConsumerDividedCounterValueWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Text('Divition result:'),
+        Text('Divition result by 2:'),
 
         /// use the [Consumer] widget to avoid rebuilding the entire widget
         Consumer(

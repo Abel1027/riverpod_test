@@ -14,8 +14,8 @@ final counterTitleProvider = Provider(
     (ref) => 'You have pushed the button this many times (using Riverpod):');
 
 /// with [StateNotifierProvider] you can access a notifier to emit events and a multiple state class
-final counterProvider = StateNotifierProvider<CounterNotifier, CounterState>(
-    (ref) => CounterNotifier());
+final counterProvider = StateNotifierProvider.family<CounterNotifier, CounterState, int>(
+    (ref, id) => CounterNotifier());
 
 final counterRepositoryProvider = Provider((ref) => CounterRepository());
 
@@ -30,7 +30,7 @@ final multiplierCounterProvider =
 final dividerCounterProvider =
     StateNotifierProvider<DividerNotifier, DividerState>((ref) {
   /// [counter] will be updated every time [counter] changes in [counterProvider]
-  final counter = ref.watch(counterProvider).counter;
+  final counter = ref.watch(counterProvider(1)).counter;
 
   /// [counter] will NOT be updated even [counter] changes in [counterProvider]
   /// however, using [read] in the body of a provider is a BAD PRACTICE
@@ -56,3 +56,7 @@ final powerCounterProvider =
     ..setInitialState(counter)
     ..power(power);
 });
+
+final anotherCounterProvider =
+    StateNotifierProvider<CounterNotifier, CounterState>(
+        (ref) => CounterNotifier());

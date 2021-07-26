@@ -24,7 +24,9 @@ class DecrementCounterPage extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: RiverpodConsumerDecrementButtonWidget(),
+      floatingActionButton: RiverpodConsumerDecrementButtonWidget(
+        heroTag: 'dec',
+      ),
     );
   }
 }

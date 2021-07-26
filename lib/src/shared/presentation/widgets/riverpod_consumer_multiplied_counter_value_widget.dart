@@ -15,7 +15,7 @@ class _RiverpodConsumerMultipliedCounterValueWidgetState
     extends State<RiverpodConsumerMultipliedCounterValueWidget> {
   @override
   void initState() {
-    final counterValue = context.read(counterProvider).counter;
+    final counterValue = context.read(counterProvider(1)).counter;
     context
         .read(multiplierCounterProvider.notifier)
         .setInitialState(counterValue);
@@ -28,7 +28,7 @@ class _RiverpodConsumerMultipliedCounterValueWidgetState
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Text('Multiplication result:'),
+        Text('Multiplication result by 2:'),
 
         /// use the [Consumer] widget to avoid rebuilding the entire widget
         Consumer(

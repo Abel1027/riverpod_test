@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_test/src/shared/domain/logger.dart';
 import 'package:riverpod_test/src/shared/presentation/pages/increment_counter_page.dart';
 
 void main() {
   runApp(
     // Enabled Riverpod for the entire application
     ProviderScope(
+      observers: [Logger()],
       child: MyApp(),
     ),
   );

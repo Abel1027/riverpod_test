@@ -48,7 +48,9 @@ class IncrementCounterPage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: RiverpodConsumerIncrementButtonWidget(),
+      floatingActionButton: RiverpodConsumerIncrementButtonWidget(
+        heroTag: 'inc',
+      ),
     );
   }
 }
